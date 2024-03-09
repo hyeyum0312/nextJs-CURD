@@ -3,7 +3,7 @@ import { ObjectId } from "mongodb";
 export default async function handler(req:any, res:any){
     if (req.method === "POST") {
         if (req.body.title === "") {
-            return res.status(400).json("제목 입력은 필수값입니다.")
+            return res.status(400).json("제목 입력은 필수값입니다.") 
         }
 
         try{

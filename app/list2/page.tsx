@@ -3,7 +3,7 @@ import Link from "next/link";
 import DetailLink from "./DetailLinke";
 import ListItem from "./listItem";
 
-export const dynamic = 'force-dynamic' 
+export const revalidate = 20; // 20초 캐싱
 
 export default async function List() {
   const client = await connectDB;

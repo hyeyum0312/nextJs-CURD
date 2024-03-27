@@ -26,33 +26,34 @@ export default function ListItem({result}) {
                 {/* form으로 요청 시 새로고침처리됩니다. ajax로 요청 시 새로고침 처리 안됌. */}
                 <span className="deleteIcon" onClick={(e)=>{
                     // 데이터 많으면 지저분해집니다. URL에 노출되기 때문에 민감한 데이터는 사용하지 않아야합니다.
-                    fetch("/api/abc/kim");
+                    // fetch("/api/abc/kim");
 
                     // method요청 함께 사용 + 데이터 전송 시
                     // 배열,객체 전송 시 - JSON.stringify 필수
 
 
                     // 코드가 너무 길어지는 탓에 axios를 사용하기도 합니다.
-                    {/*fetch("/api/post/delete", {
+                    {fetch("/api/post/delete", {
                         method: "DELETE",
                         body: item._id
                     }).then((r)=>{
                         if (r.status == 200) {
+                            e.target.parentElement.style.opacity= 0;
+                            setTimeout(() => {
+                                e.target.parentElement.style.display = "none";
+                            }, 1000);
                             return r.json()
+                            
                         } else {
-                            // 서버에러시 실행할 코드
+                            console.log('r',r);
                         }
                         
-                    }).then(()=>{
-                        e.target.parentElement.style.opacity= 0;
-                        setTimeout(() => {
-                            e.target.parentElement.style.display = "none";
-                        }, 1000);
                     }).catch((error)=>{
+                        console.log('error',error);
                         // 인터넷에러로 실행할 코드 (네트워크에러)
-                        console.log('인터넷에러로 실패');
+                        console.log('인터넷에러로 실패'); 
                     })
-                    */}
+                    }
                     
                 }}>🗑️</span>
                 <p>{item.content}</p>

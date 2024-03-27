@@ -3,7 +3,7 @@ declare global {
 }
 
 import { MongoClient } from 'mongodb'
-const url = 'mongodb+srv://admin:hyeyeon123@cluster0.gtsj6e5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0'
+const url = 'mongodb+srv://admin:hyeyeon123@cluster0.gtsj6e5.mongodb.net/curd?retryWrites=true&w=majority&appName=Cluster0'
 const options:any = { useNewUrlParser: true }
 let connectDB:any;
 

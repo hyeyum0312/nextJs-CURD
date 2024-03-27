@@ -39,3 +39,7 @@ a {
 .deleteIcon {
   cursor: pointer;
 }
+
+.linkTag {
+  padding: 14px;
+}

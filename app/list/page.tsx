@@ -15,7 +15,6 @@ export default async function List() {
 
 
     return (
-      
       <div className="list-bg">
         <ListItem result={result}/>
       </div>

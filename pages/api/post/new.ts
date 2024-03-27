@@ -1,6 +1,17 @@
 import { connectDB } from "@/app/util/database";
+import { getServerSession } from "next-auth";
+import { authOptions } from "../auth/[...nextauth]";
+
 
 export default async function handler(req:any, res:any){
+    const session = await getServerSession(req,res,authOptions);
+    console.log('session',session);
+    console.log('email',session?.user?.email);
+
+    if (session) {
+        req.body.author = session?.user?.email
+    }
+
     if (req.method === "POST") {
         if (req.body.title === "") {
             return res.status(400).json("제목 입력은 필수값입니다.")

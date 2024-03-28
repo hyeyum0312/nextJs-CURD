@@ -1,5 +1,4 @@
 import { connectDB } from "@/app/util/database";
-import { Console } from "console";
 import { ObjectId } from "mongodb";
 import { getServerSession } from "next-auth";
 import { authOptions } from "../auth/[...nextauth]";
@@ -7,7 +6,8 @@ import { authOptions } from "../auth/[...nextauth]";
 export default async function handler(req:any, res:any){
 
     const session = await getServerSession(req,res,authOptions);
-
+    console.log('session',session);
+    
     if (req.method === "DELETE") {
         if (session !== null) {
             if (req.body.author === session.user?.email) {
@@ -15,7 +15,6 @@ export default async function handler(req:any, res:any){
                     // 페이지 이동 
                     const db = (await connectDB).db("forum");
                     let result = await db.collection('post').deleteOne({_id : new ObjectId(req.body)});
-                    console.log(result)
                     res.status(200).json('삭제완료')
                 } catch(error) {
                     return res.status(500).json("서버오류입니다.")

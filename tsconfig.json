@@ -19,8 +19,9 @@
     ],
     "paths": {
       "@/*": ["./*"]
-    }
+    },
+    "target": "ES6",
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/util/database.ts", "app/list/DetailLinke.js", "app/signup/page.js", "app/list/listItem.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "app/util/database.ts", "app/list/DetailLinke.js", "app/signup/page.js", "app/list/listItem.js", "pages/api/auth/signup.js", "app/detail/[id]/page.js"],
   "exclude": ["node_modules"]
 }
